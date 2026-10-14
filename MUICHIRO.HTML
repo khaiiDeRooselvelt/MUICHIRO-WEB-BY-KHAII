@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>XENDEV - Portfolio Muichiro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="MUICHIRO.CSS" />
+
+    <style>
+        /* ================================================= */
+        /* CSS KHUSUS GALERI MINI */
+        /* ================================================= */
+        .mini-gallery {
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px 10px;
+            /* Tambahkan padding agar ada jarak dengan konten atas/bawah */
+            margin: 0 auto;
+        }
+
+        .slideshow-container {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 12px;
+            /* Jarak antar gambar */
+            padding: 15px;
+            background-color: #1a1a1a;
+            /* Latar belakang kontainer galeri */
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .slideshow-container img {
+            flex: 0 0 180px;
+            width: 180px;
+            height: 140px;
+            /* Tinggi seragam untuk tampilan grid yang rapi */
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+
+            /* PENTING: Atur properti transisi untuk animasi halus */
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                filter 0.4s ease,
+                box-shadow 0.4s ease;
+
+            filter: brightness(0.8);
+            /* Gambar sedikit redup secara default */
+        }
+
+        /* Efek saat kursor diarahkan ke gambar tertentu */
+        .slideshow-container img:hover {
+            transform: scale(1.1);
+            /* Memperbesar gambar */
+            filter: brightness(1);
+            /* Menampilkan gambar dengan kecerahan penuh */
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8),
+                0 0 10px rgba(255, 105, 180, 0.5);
+            /* Efek glow */
+            z-index: 10;
+        }
+
+        /* Efek opsional: Membuat gambar lain sedikit lebih redup saat galeri di-hover */
+        .slideshow-container:hover img:not(:hover) {
+            filter: brightness(0.5);
+            /* Gambar lain lebih redup */
+            transform: scale(0.98);
+            /* Gambar lain sedikit menyusut */
+        }
+
+        /* Galeri tetap satu baris dan dapat digeser ke samping. */
+    </style>
+</head>
+
+<body>
+    <div id="custom-modal" class="custom-modal" style="display: none;">
+        <div class="modal-content">
+            <h3 id="modal-title">Notifikasi Kabut</h3>
+            <p id="modal-message">Isi pesan di sini.</p>
+            <button class="btn btn-primary" onclick="closeModal()">Tutup Kabut</button>
+        </div>
+    </div>
+
+    <nav>
+        <span class="brand">XEN<span class="dev-highlight">DEV</span></span>
+
+        <div class="nav-links-container">
+            <a class="nav-link active" onclick="showSection('beranda')">Beranda</a>
+            <a class="nav-link" onclick="showSection('biodata')">Tentang Saya</a>
+            <a class="nav-link" onclick="showSection('service')">Service</a>
+            <a class="nav-link" onclick="showSection('portfolio')">Project</a>
+            <a class="nav-link" onclick="showSection('kontak')">Kontak</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="beranda" class="active">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <p>Halo, saya <b>M Khaza Huwa Khairun</b></p>
+                    <h1>Breath of Mist: I'm a <span class="highlight" id="animated-skill"></span></h1>
+                    <p>
+                        Seorang Pilar (Hashira) teknologi, menciptakan kode yang mengalir seperti kabut,
+                        cepat, tak terduga, dan efektif, memberikan solusi yang tampak sederhana namun berdaya ledak.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/m.khaza.huwa" target="_blank" title="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@m.khaza.huwa" target="_blank" title="TikTok"><i
+                                class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/c/MKhazaDev" target="_blank" title="YouTube"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
+                    <a onclick="showSection('portfolio')" class="btn btn-primary">Lihat Misi</a>
+                    <a onclick="showSection('kontak')" class="btn btn-outline">Kirim Pesan</a>
+                </div>
+                <div class="hero-img">
+                    <img src="download (22).jpg" alt="Muichiro Tokito Profile">
+                </div>
+            </div>
+
+            <div class="mini-gallery">
+                <h2 style="text-align: center; margin-bottom: 20px; color: #E0FFFF;">Ingatan Visual: Galeri Misi</h2>
+                <div class="slideshow-container">
+                    <img src="download (23).jpg" alt="Gallery 1">
+                    <img src="download (24).jpg" alt="Gallery 2">
+                    <img src="download (25).jpg" alt="Gallery 3">
+                    <img src="download (26).jpg" alt="Gallery 4">
+                    <img src="download (27).jpg" alt="Gallery 5">
+                    <img src="images (16).jpg" alt="Gallery 6">
+                    <img src="10001.svg" alt="Gallery 7">
+                    <img src="10002.jpg" alt="Gallery 8">
+                    <img src="10003.jpg" alt="Gallery 9">
+                    <img src="10004.jpg" alt="Gallery 10">
+                    <img src="10005.jpg" alt="Gallery 11">
+                    <img src="10006.jpg" alt="Gallery 12">
+                    <img src="10007.jpg" alt="Gallery 13">
+                    <img src="10008.jpg" alt="Gallery 14">
+                    <img src="10009.jpg" alt="Gallery 15">
+                    <img src="10010.jpg" alt="Gallery 16">
+                    <img src="10011.jpg" alt="Gallery 17">
+                    <img src="10012.jpg" alt="Gallery 18">
+                    <img src="10013.jpg" alt="Gallery 19">
+                    <img src="10014.jpg" alt="Gallery 20">
+                    <img src="10015.jpg" alt="Gallery 21">
+                </div>
+            </div>
+        </section>
+
+        <section id="biodata">
+            <h2 class="section-title">Ingatan Saya (Tentang Saya)</h2>
+            <div class="about-container">
+                <div class="about-img-box">
+                    <img src="images (17).jpg" alt="Muichiro Tokito">
+                </div>
+                <div class="about-content">
+                    <h3 style="color: #E0FFFF;">Hello, I'm M Khaza Huwa Khairun, the Mist Hashira</h3>
+                    <p>
+                        Seperti **Pilar Kabut (Kasumi Hashira)**, pikiran saya mungkin kadang melayang seperti kabut,
+                        tetapi saat beraksi, saya mencapai fokus penuh dan eksekusi yang sempurna. Saya adalah pelajar
+                        berusia 16 tahun yang berfokus pada **efisiensi**, **minimalisme**, dan **presisi** dalam
+                        pemrograman.
+                    </p>
+                    <p>
+                        Filosofi saya adalah **"Kabut yang Melindungi"**. Saya menciptakan solusi yang ringan dan tidak
+                        terduga. Gaya coding saya, **Kasumi no Kokyuu (Pernapasan Kabut)**, memanfaatkan teknik yang
+                        sederhana namun mampu mengalahkan masalah yang kompleks.
+                    </p>
+                    <div class="about-buttons">
+                        <a onclick="handleDownloadCV()" class="btn btn-primary">Lihat Nichirin</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="service">
+            <h2 class="section-title">Bentuk Pernapasan (Layanan)</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Bentuk Pertama: Web Development</h3>
+                    <p>Menciptakan front-end website yang halus, ringan, dan cepat dimuat.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-pencil-ruler"></i>
+                    <h3>Bentuk Kedua: Clean UI/UX Design</h3>
+                    <p>Desain antarmuka yang bersih dan minimalis, fokus pada fungsionalitas inti (seperti kabut).</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-code-branch"></i>
+                    <h3>Bentuk Ketiga: Logic Structuring</h3>
+                    <p>Pengembangan logika back-end yang terstruktur dan mudah dimengerti (membubarkan kabut).</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cube"></i>
+                    <h3>Bentuk Keempat: Minimalist Framework</h3>
+                    <p>Menerapkan kerangka kerja (framework) sederhana untuk proyek-proyek kecil.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-eye-slash"></i>
+                    <h3>Bentuk Kelima: Haze of Logic (Obfuscation)</h3>
+                    <p>Melindungi data dan kode dengan teknik sederhana, membuatnya sulit dipahami (seperti hilang dalam
+                        kabut).</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Bentuk Keenam: Lightning Deployment</h3>
+                    <p>Implementasi proyek yang cepat dan efisien ke server atau hosting.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2 class="section-title">Rekam Jejak Misi (Portfolio)</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="images (18).jpg" alt="Project Portfolio">
+                    </div>
+                    <div class="project-info">
+                        <h3>Kasumi no Kokyuu: Portfolio</h3>
+                        <p>Bentuk pertama yang menampilkan ingatan, keterampilan, dan misi Pilar Kabut ini.</p>
+                        <a onclick="showModal('Projek Portfolio', 'Ini adalah portfolio yang sedang Anda lihat, sebuah manifestasi dari Teknik Pernapasan Kabut!')"
+                            class="btn btn-primary">Lihat Detail</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="images (19).jpg" alt="Project Kalkulator">
+                    </div>
+                    <div class="project-info">
+                        <h3>Mist Breathing Kalkulator</h3>
+                        <p>Aplikasi kalkulator sederhana, melatih akurasi logika secepat tebasan pedang.</p>
+                        <a onclick="showModal('Kalkulator JS', 'Simulasi proyek kalkulator: menggunakan HTML, CSS, dan JavaScript murni.')"
+                            class="btn btn-primary">Lihat Detail</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="images (20).jpg" alt="Project Game">
+                    </div>
+                    <div class="project-info">
+                        <h3>Haze of Numbers: Latih Fokus</h3>
+                        <p>Game interaktif kecil, melatih fokus dan kecepatan reaksi di tengah kabut.</p>
+                        <a onclick="showModal('Game Tebak Angka', 'Simulasi proyek game: dibuat menggunakan dasar-dasar JavaScript untuk melatih logika.')"
+                            class="btn btn-primary">Lihat Detail</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="images (21).jpg" alt="ProjAct Landing Page">
+                    </div>
+                    <div class="project-info">
+                        <h3>Sixth Form: Landing Page</h3>
+                        <p>Latihan desain web modern, mengalirkan tata letak yang ringan dan minimalis.</p>
+                        <a onclick="showModal('Landing Page', 'Simulasi proyek landing page: fokus pada desain responsif modern.')"
+                            class="btn btn-primary">Lihat Detail</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="images (22).jpg" alt="Project Login Form">
+                    </div>
+                    <div class="project-info">
+                        <h3>Seventh Form: Login Form</h3>
+                        <p>Implementasi form login dengan validasi dasar. Ketepatan dalam otentikasi.</p>
+                        <a onclick="showModal('Login Form', 'Simulasi proyek form login: fokus pada validasi input sisi klien.')"
+                            class="btn btn-primary">Lihat Detail</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="download (23).jpg" alt="Project To Do List">
+                    </div>
+                    <div class="project-info">
+                        <h3>Mist Pillar's Schedule</h3>
+                        <p>Aplikasi daftar tugas sederhana, mengatur jadwal misi harian dengan detail.</p>
+                        <a onclick="showModal('To-Do List App', 'Simulasi proyek To-Do List: implementasi CRUD dasar.')"
+                            class="btn btn-primary">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak">
+            <h2 class="section-title">Pesan Melalui Kasugai Crow</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <p>Email: <span>khuwakhairun@gmail.com</span></p>
+                    <p>Telepon: <span>+62 859 2697 9906</span></p>
+                    <p>Alamat: <span>Batam, Indonesia</span></p>
+                    <p>Instagram: <span>m_khaza21</span></p>
+                </div>
+                <div class="contact-form-box">
+                    <form id="contact-form">
+                        <input type="text" name="nama" placeholder="Nama Anda (Siapa Anda?)" required>
+                        <input type="email" name="email" placeholder="Alamat Email (Arah Kabut)" required>
+                        <textarea name="pesan" rows="5" placeholder="Pesan Anda (Apa yang ingin Anda sampaikan?)"
+                            required></textarea>
+                        <button class="btn btn-primary" type="submit">Kirim Kabut</button>
+                        <div id="form-status" style="margin-top: 10px; text-align: center;"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Fungsi untuk menampilkan modal kustom (menggantikan alert/confirm)
+        function showModal(title, message) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-message').innerText = message;
+            document.getElementById('custom-modal').style.display = 'flex';
+        }
+
+        // Fungsi untuk menutup modal kustom
+        function closeModal() {
+            document.getElementById('custom-modal').style.display = 'none';
+        }
+
+        // Fungsi untuk menangani klik Unduh CV (diubah menjadi Unduh Nichirin)
+        function handleDownloadCV() {
+            showModal('Lihat Nichirin', 'Maaf, fitur Unduh Nichirin tidak didukung dalam lingkungan pratinjau (Sandbox) ini. Ini adalah simulasi tautan, mencerminkan ketidaksadaran Muichiro!');
+        }
+
+        // Fungsi untuk mengaktifkan animasi ketik
+        function typeWriter(elementId, textArray) {
+            let element = document.getElementById(elementId);
+            if (!element) return;
+
+            let arrayIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let speed = 100;
+
+            function type() {
+                let fullText = textArray[arrayIndex];
+                let currentText = fullText.substring(0, charIndex);
+
+                element.innerHTML = currentText;
+
+                if (isDeleting) {
+                    charIndex--;
+                    speed = 50;
+                } else {
+                    charIndex++;
+                    speed = 100;
+                }
+
+                if (!isDeleting && charIndex == fullText.length + 1) {
+                    speed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex < 0) {
+                    isDeleting = false;
+                    arrayIndex = (arrayIndex + 1) % textArray.length;
+                    speed = 150;
+                }
+
+                let delay = isDeleting ? speed : speed;
+                setTimeout(type, delay);
+            }
+            type();
+        }
+
+        // Fungsi untuk navigasi (pindah antar section)
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+
+                document.querySelector(`[onclick="showSection('${sectionId}')"]`).classList.add('active');
+
+                activeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // CATATAN: Fungsi initSlideshow ASLI dihilangkan karena kita menggunakan CSS GRID statis
+        // Jika ingin ada animasi slideshow, Anda bisa mengaktifkan kembali fungsi initSlideshow dan menghapus 
+        // properti CSS Grid
+
+        // Menangani pengiriman form kontak
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    formStatus.innerHTML = '<span style="color: #E0FFFF;">Menerima pesan melalui kabut...</span>';
+
+                    setTimeout(() => {
+                        formStatus.innerHTML = '<span style="color: #40E0D0; font-weight: bold;">Pesan Anda telah diterima oleh Pilar Kabut!</span>';
+                        contactForm.reset();
+                    }, 2000);
+                });
+            }
+
+            const skills = ["Mist Hashira", "Minimalist Coder", "Efficient Developer", "Kasumi no Kokyuu Master"];
+            typeWriter('animated-skill', skills);
+
+            // TIDAK PERLU MEMANGGIL initSlideshow karena sudah diganti dengan CSS Grid
+            // initSlideshow();
+        });
+    </script>
+</body>
+
+</html>
